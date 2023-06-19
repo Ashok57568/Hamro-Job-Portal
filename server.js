@@ -4,7 +4,7 @@ import express from "express";
 import dotenv from "dotenv";
 import colors from  "colors";
 import connectDB from "./config/db.js";
-import testRoutes from './routes/testRoutes.js'
+import testRoutes from './routes/testRoutes.js';
 //rest object
 
 //Dot ENV config
@@ -13,13 +13,16 @@ dotenv.config();
 //mongodb connection
 connectDB();
 
-const app = express()
+const app = express();
+
+app.use(express.json());
+
 
 //routes
-app.use('/api/v1/test',testRoutes)
+app.use('/api/v1/test',testRoutes);
 
 //port
-const PORT = process.env.PORT ||8080
+const PORT = process.env.PORT ||8080;
 
 
 //listen
